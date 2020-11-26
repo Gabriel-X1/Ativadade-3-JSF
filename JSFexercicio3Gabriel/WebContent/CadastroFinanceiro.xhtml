@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+<title>Cadastro hospital</title>
+</h:head>
+<h:body>
+  <h:form>
+  <h:commandLink value="Listar" action="ListaFinanceiro.xhtml" immediate="true"/>
+  <h1>Financeiro</h1>
+  <h:messages/>
+  <h:panelGrid columns="2">
+  
+  
+  <h:outputText value="Descrição do procedimento: "/>
+  <h:inputText value="#{financeiroController.financeiro.procedimentoDesc}"
+  required="true"
+  requiredMessage="O campo Produto e obrigatorio"/>
+  
+  
+  <h:outputText value="Data início do procedimento: "/>
+  <h:inputText value="#{financeiroController.financeiro.dataInicioProcedimento}"
+  required="true"
+  requiredMessage="O campo Data início do procedimento e obrigatorio">
+  <f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+  </h:inputText>
+  
+  
+  <h:outputText value="Data fim do procedimento: "/>
+  <h:inputText value="#{financeiroController.financeiro.dataFimProcedimento}"
+  required="true"
+  requiredMessage="O campo Data fim do procedimento e obrigatorio">
+  <f:convertDateTime pattern="dd/MM/yyyy" timeZone="America/Sao_Paulo"/>
+  </h:inputText>
+ 
+  <h:outputText value="Paciente: "/>
+  <h:inputText value="#{financeiroController.financeiro.pacienteDesc}"
+  required="true"
+  requiredMessage="O campo Paciente e obrigatorio">
+  <f:validateLength maximum="30"/>
+  </h:inputText>
+  
+  <h:outputText value="Quantidade de exames: "/>
+  <h:inputText value="#{financeiroController.financeiro.quantidadeExameProcedimento}"
+  required="true"
+  requiredMessage="O campo Quantidade de exames e obrigatorio">
+  <f:validateLongRange minimum="1" maximum="100"/>
+  </h:inputText>
+  
+  <h:outputText value="Valor do procedimento: "/>
+  <h:inputText value="#{financeiroController.financeiro.valor_procedimento}"
+  required="true"
+  requiredMessage="O campo Valor do procedimento e obrigatorio">
+  <f:validateDoubleRange minimum="1" maximum="9000"/>
+  </h:inputText>
+  
+  <h:commandButton value="Salvar" action="#{financeiroController.Salvar}"/>
+  
+  
+  </h:panelGrid>
+  </h:form>
+</h:body>
+</html>
